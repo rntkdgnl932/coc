@@ -14,14 +14,40 @@ def tuto_start(cla):
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_coc import clean_screen
-    from get_item_coc import get_contents_bosang
+    from get_item_coc import get_item
+    from schedule import myQuest_play_add
+    from collection_coc import collection_start
+    from boonhae_coc import boonhae_start
 
     try:
         print("tuto_start")
 
         clean_screen(cla)
 
-        get_contents_bosang(cla)
+        contents_exist = False
+        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\point_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(260, 30, 300, 60, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            contents_exist = True
+        else:
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\point_1_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(260, 30, 300, 60, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                contents_exist = True
+
+        if contents_exist == True:
+            get_item(cla)
+            time.sleep(0.1)
+            collection_start(cla)
+            time.sleep(0.1)
+            boonhae_start(cla)
+            time.sleep(0.1)
+            clean_screen(cla)
+
 
         for i in range(5):
 
@@ -43,7 +69,18 @@ def tuto_start(cla):
                 else:
                     des_result = tuto_description(cla)
                     if des_result == False:
-                        tuto_click(cla)
+
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\click\\quest_end.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(80, 110, 170, 140, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            print("레벨 제한...")
+                            myQuest_play_add(cla, "튜토육성")
+                        else:
+                            tuto_click(cla)
+
+
                 time.sleep(0.2)
 
 

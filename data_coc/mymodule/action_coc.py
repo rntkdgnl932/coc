@@ -176,3 +176,44 @@ def out_check(cla):
     except Exception as e:
         print(e)
         return 0
+
+def bag_open(cla):
+    import numpy as np
+    import cv2
+    from function_game import imgs_set_, click_pos_reg, click_pos_2
+
+    try:
+        print("bag_open")
+
+        bag_opened = False
+        bag_opened_count = 0
+        while bag_opened is False:
+            bag_opened_count += 1
+            if bag_opened_count > 7:
+                bag_opened = True
+
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\bag_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(770, 340, 830, 380, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("this is bag")
+                bag_opened = True
+            else:
+                clean_screen(cla)
+                time.sleep(0.2)
+                click_pos_2(870, 60, cla)
+                for i in range(10):
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\bag_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(770, 340, 830, 380, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.2)
+
+
+
+    except Exception as e:
+        print(e)
+        return 0

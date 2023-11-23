@@ -23,6 +23,8 @@ def get_item(cla):
 
         get_chulsuk_bosang(cla)
 
+        get_post(cla)
+
     except Exception as e:
         print(e)
         return 0
@@ -36,13 +38,25 @@ def get_contents_bosang(cla):
     try:
         print("get_contents_bosang")
 
+        contents_exist = False
+
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\point_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(260, 30, 300, 60, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            click_pos_reg(imgs_.x, imgs_.y, cla)
+            click_pos_reg(imgs_.x - 10, imgs_.y + 10, cla)
+            contents_exist = True
+        else:
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\point_1_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(260, 30, 300, 60, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x - 10, imgs_.y + 10, cla)
+                contents_exist = True
 
+        if contents_exist == True:
             for i in range(10):
                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\contents_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -79,13 +93,25 @@ def get_event_bosang(cla):
     try:
         print("get_event_bosang")
 
+        event_exist = False
+
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\event_bosang\\point_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(730, 30, 770, 60, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            click_pos_reg(imgs_.x - 10, imgs_.y + 10, cla)
+            click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
+            event_exist = True
+        else:
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\point_1_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(730, 30, 770, 60, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
+                event_exist = True
 
+        if event_exist == True:
             for i in range(10):
                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\event_bosang\\event_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -98,7 +124,7 @@ def get_event_bosang(cla):
                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\event_bosang\\point_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(140, 330, 185, 500, cla, img, 0.8)
+                imgs_ = imgs_set_(140, 330, 185, 730, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x - 10, imgs_.y + 10, cla)
                     time.sleep(0.5)
@@ -107,7 +133,7 @@ def get_event_bosang(cla):
                     full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\event_bosang\\mission_information.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(610, 430, 700, 480, cla, img, 0.8)
+                    imgs_ = imgs_set_(500, 420, 580, 480, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         for t in range(10):
@@ -140,7 +166,7 @@ def get_event_bosang(cla):
                     full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\event_bosang\\get_all_confirm.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(680, 430, 840, 480, cla, img, 0.8)
+                    imgs_ = imgs_set_(680, 430, 880, 750, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.5)
@@ -160,17 +186,31 @@ def get_chulsuk_bosang(cla):
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_coc import clean_screen
+    from collection_coc import collection_start
+    from boonhae_coc import boonhae_start
 
     try:
         print("get_chulsuk_bosang")
+
+        chulsuk_exist = True
 
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\event_bosang\\point_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(780, 30, 810, 60, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            click_pos_reg(imgs_.x - 10, imgs_.y + 10, cla)
+            click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
+            chulsuk_exist = True
+        else:
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\point_1_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(730, 30, 770, 60, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
+                chulsuk_exist = True
 
+        if chulsuk_exist == True:
             for i in range(10):
                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\chulsuk_bosang\\chulsuk_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -190,10 +230,21 @@ def get_chulsuk_bosang(cla):
                     full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\chulsuk_bosang\\get_bosang_confirm.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(720, 480, 860, 530, cla, img, 0.8)
+                    imgs_ = imgs_set_(720, 480, 860, 800, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(0.5)
+                        for i in range(5):
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\chulsuk_bosang\\gongan_insufficient.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(450, 280, 640, 340, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                # 콜렉션 및 분해하기
+                                print("go collection and boonhae")
+                                collection_start(cla)
+                                time.sleep(0.1)
+                                boonhae_start(cla)
+                            time.sleep(0.1)
                 else:
                     break
                 time.sleep(0.3)
