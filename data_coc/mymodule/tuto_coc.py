@@ -196,6 +196,13 @@ def tuto_description(cla):
 
                                         click_pos_reg(imgs_.x - 35, imgs_.y, cla)
 
+                                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\skill_select_1.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(500, 400, 640, 450, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_2(800, 430, cla)
+
 
                                     else:
 
