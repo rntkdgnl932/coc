@@ -156,7 +156,7 @@ def tuto_description(cla):
                                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\quick_slot_drag_2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(590, 860, 960, 960, cla, img, 0.8)
+                                imgs_ = imgs_set_(500, 860, 960, 960, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     description = True
                                     quick_slot_drag = True
@@ -177,7 +177,7 @@ def tuto_description(cla):
                                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\quick_slot_drag_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(590, 860, 690, 900, cla, img, 0.8)
+                                imgs_ = imgs_set_(500, 860, 690, 900, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     description = True
                                     quick_slot_drag = True
