@@ -14,7 +14,7 @@ not_boohwal = False
 
 
 # 게임 및 폴더 관련
-this_game = "game_name"
+this_game = "coc어셈블"
 game_folder = "coc"
 data_folder = "data_coc"
 

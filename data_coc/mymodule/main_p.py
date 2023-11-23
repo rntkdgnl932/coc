@@ -45,6 +45,9 @@ from function_game import imgs_set, imgs_set_, click_pos_2, random_int, text_che
 from massenger import line_monitor, line_to_me
 from schedule import myQuest_play_check, myQuest_play_add
 
+from tuto_coc import tuto_start
+from sub_coc import sub_start
+
 
 from stop_event18 import _stop_please
 
@@ -140,7 +143,7 @@ class MyApp(QDialog):
         self.setGeometry(20 + 960, 200, 900, 700)
         self.show()
     def my_title(self):
-        self.setWindowTitle("게임(ver " + version + ")")
+        self.setWindowTitle("콜오브카오스 어셈블(ver " + version + ")")
 
 class ThirdTab(QWidget):
 
@@ -931,7 +934,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 각종템받기, 거래소등록하기, 의뢰')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '캐릭터바꾸기', '각종템받기', '버프와물약사기', '거래소등록', '튜토육성', '의뢰_세라보그', '의뢰_바란', '의뢰_국경지대', '의뢰_유로키나산맥']
+        list6 = ['스케쥴 선택', '캐릭터바꾸기', '각종템받기', '버프와물약사기', '거래소등록', '튜토육성', '서브퀘스트']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -3231,8 +3234,9 @@ class game_Playing(QThread):
                                 # 오토 시작
 
                                 if result_schedule_ == "튜토육성":
-                                    # tuto_start(v_.now_cla)
-                                    print("start")
+                                    tuto_start(v_.now_cla)
+                                elif result_schedule_ == "서브퀘스트":
+                                    sub_start(v_.now_cla)
 
 
 
@@ -3281,7 +3285,7 @@ class game_Playing(QThread):
                                 os.execl(sys.executable, sys.executable, *sys.argv)
 
 
-                time.sleep(5)
+                time.sleep(1)
 
 
 

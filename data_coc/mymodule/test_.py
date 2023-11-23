@@ -15,6 +15,13 @@ def go_test():
     import pyautogui
     import random
 
+    from function_game import imgs_set_, click_pos_reg, drag_pos
+
+
+    from get_item_coc import get_item, get_post
+
+    from tuto_coc import tuto_start
+
 
     print("test")
     cla = "one"
@@ -30,4 +37,7 @@ def go_test():
         plus = 960 * 2
     elif cla == "four":
         plus = 960 * 3
+    #
+    # get_item(cla)
 
+    get_post(cla)

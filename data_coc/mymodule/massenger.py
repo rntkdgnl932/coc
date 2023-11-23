@@ -210,7 +210,7 @@ def line_monitor(game, cla):
                 # 블랙 스크린
                 nowTime = datetime.today().strftime("%Y/%m/%d %H:%M:%S")
                 print(nowTime)
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\monitor\\unreal_error_1.png"
+                full_path = "c:\\my_games\\" + str(v_.game_folder) + "\\" + str(v_.data_folder) + "\\imgs\\monitor\\unreal_error_1.png"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set(0, 700, 960, 850, "one", img)
@@ -218,7 +218,7 @@ def line_monitor(game, cla):
                     ms_ = str(game) + str(" 블랙스크린")
                     line_to_me("one", ms_)
 
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\monitor\\closewithoutsending.PNG"
+                full_path = "c:\\my_games\\" + str(v_.game_folder) + "\\" + str(v_.data_folder) + "\\imgs\\monitor\\closewithoutsending.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set(0, 700, 960, 850, "one", img)
@@ -226,7 +226,7 @@ def line_monitor(game, cla):
                     ms_ = str(game) + str(" 블랙스크린")
                     line_to_me("one", ms_)
 
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\monitor\\unreal_error_2.png"
+                full_path = "c:\\my_games\\" + str(v_.game_folder) + "\\" + str(v_.data_folder) + "\\imgs\\monitor\\unreal_error_2.png"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set(0, 700, 960, 850, "two", img)
@@ -234,7 +234,7 @@ def line_monitor(game, cla):
                     ms_ = str(game) + str(" 블랙스크린")
                     line_to_me("two", ms_)
 
-                full_path = "c:\\my_games\\moonlight\\data_moon\\imgs\\monitor\\sendandrestart.PNG"
+                full_path = "c:\\my_games\\" + str(v_.game_folder) + "\\" + str(v_.data_folder) + "\\imgs\\monitor\\sendandrestart.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set(0, 700, 960, 850, "two", img)
@@ -267,7 +267,7 @@ def line_monitor(game, cla):
                 yesterday_ = date.today() - timedelta(1)
                 yesterday = int(yesterday_.strftime('%Y%m%d'))
 
-                dir_path = "C:\\my_games\\moonlight"
+                dir_path = "C:\\my_games\\" + str(v_.game_folder)
                 file_path2 = dir_path + "\\mysettings\\refresh_time\\quest.txt"
                 file_path13 = dir_path + "\\mysettings\\refresh_time\\refresh_time.txt"
 
