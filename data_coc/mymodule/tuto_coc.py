@@ -133,134 +133,124 @@ def tuto_description(cla):
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
+
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\click_ready_down.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 30, 960, 1060, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        description = True
+
+                        click_pos_reg(imgs_.x, imgs_.y + 35, cla)
+
+                        quick_slot_drag = False
+
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\quick_slot_drag_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(590, 860, 690, 900, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            description = True
+                            quick_slot_drag = True
+                        else:
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\quick_slot_drag_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(500, 860, 960, 960, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                description = True
+                                quick_slot_drag = True
+                        if quick_slot_drag == True:
+                            drag_pos(740, 985, 740, 930, cla)
+
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\click_ready_down2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 30, 960, 1060, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        description = True
+
+                        click_pos_reg(imgs_.x, imgs_.y + 35, cla)
+
+                        quick_slot_drag = False
+
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\quick_slot_drag_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(500, 860, 690, 900, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            description = True
+                            quick_slot_drag = True
+                        else:
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\quick_slot_drag_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(590, 860, 960, 960, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                description = True
+                                quick_slot_drag = True
+                        if quick_slot_drag == True:
+                            drag_pos(740, 985, 740, 930, cla)
+
+
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\click_ready_right.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 30, 960, 1060, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        description = True
+
+                        click_pos_reg(imgs_.x + 35, imgs_.y, cla)
+
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\skill_select_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(500, 400, 640, 450, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(800, 430, cla)
+
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\no_target_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(360, 260, 640, 450, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(800, 430, cla)
+
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\click_ready_left.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 30, 960, 1060, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        description = True
+
+                        click_pos_reg(imgs_.x - 35, imgs_.y, cla)
+
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\skill_select_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(500, 400, 640, 450, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(800, 430, cla)
+
+
                     else:
-                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\click_ready_down.PNG"
+
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\click_ready_left2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(0, 30, 960, 1060, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             description = True
+                            click_pos_reg(imgs_.x - 35, imgs_.y, cla)
 
-                            click_pos_reg(imgs_.x, imgs_.y + 35, cla)
-
-                            quick_slot_drag = False
-
-                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\quick_slot_drag_1.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(590, 860, 690, 900, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                description = True
-                                quick_slot_drag = True
-                            else:
-                                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\quick_slot_drag_2.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(500, 860, 960, 960, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    description = True
-                                    quick_slot_drag = True
-                            if quick_slot_drag == True:
-                                drag_pos(740, 985, 740, 930, cla)
                         else:
-                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\click_ready_down2.PNG"
+
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\title\\title_collection.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(0, 30, 960, 1060, cla, img, 0.8)
+                            imgs_ = imgs_set_(10, 40, 200, 100, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                description = True
-
-                                click_pos_reg(imgs_.x, imgs_.y + 35, cla)
-
-                                quick_slot_drag = False
-
-                                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\quick_slot_drag_1.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(500, 860, 690, 900, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    description = True
-                                    quick_slot_drag = True
-                                else:
-                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\quick_slot_drag_2.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(590, 860, 960, 960, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        description = True
-                                        quick_slot_drag = True
-                                if quick_slot_drag == True:
-                                    drag_pos(740, 985, 740, 930, cla)
-                            else:
-                                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\click_ready_right.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(0, 30, 960, 1060, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    description = True
-
-                                    click_pos_reg(imgs_.x + 35, imgs_.y, cla)
-
-                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\skill_select_1.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(500, 400, 640, 450, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_2(800, 430, cla)
-
-                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\no_target_1.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(360, 260, 640, 450, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_2(800, 430, cla)
-
-                                else:
-                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\click_ready_left.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(0, 30, 960, 1060, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        description = True
-
-                                        click_pos_reg(imgs_.x - 35, imgs_.y, cla)
-
-                                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\skill_select_1.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(500, 400, 640, 450, cla, img, 0.8)
-                                        if imgs_ is not None and imgs_ != False:
-                                            click_pos_2(800, 430, cla)
-
-
-                                    else:
-
-                                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\description\\click_ready_left2.PNG"
-
-                                        img_array = np.fromfile(full_path, np.uint8)
-
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-
-                                        imgs_ = imgs_set_(0, 30, 960, 1060, cla, img, 0.8)
-
-                                        if imgs_ is not None and imgs_ != False:
-
-                                            description = True
-
-                                            click_pos_reg(imgs_.x - 35, imgs_.y, cla)
-
-                                        else:
-
-                                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\title\\title_collection.PNG"
-
-                                            img_array = np.fromfile(full_path, np.uint8)
-
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-
-                                            imgs_ = imgs_set_(10, 40, 200, 100, cla, img, 0.8)
-
-                                            if imgs_ is not None and imgs_ != False:
-                                                click_pos_2(930, 60, cla)
+                                click_pos_2(930, 60, cla)
         return description
     except Exception as e:
         print(e)
