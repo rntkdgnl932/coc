@@ -21,6 +21,7 @@ def go_test():
     from get_item_coc import get_item, get_post, get_chulsuk_bosang, get_event_bosang
     from collection_coc import collection_start
     from boonhae_coc import boonhae_setting, boonhae_start
+    from potion_coc import potion_buy
 
     from tuto_coc import tuto_start
 
@@ -42,11 +43,12 @@ def go_test():
     #
     # get_item(cla)
 
-    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\click\\quest_end.PNG"
+    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\click\\tuto_bosang_soolyung.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(80, 150, 170, 180, cla, img, 0.7)
+    imgs_ = imgs_set_(470, 590, 620, 700, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("레벨 제한...")
+        print("hi", imgs_)
+
 
     # get_event_bosang(cla)

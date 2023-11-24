@@ -104,6 +104,13 @@ def sub_description(cla):
 
         description = False
 
+        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\click\\tuto_bosang_soolyung.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(470, 590, 620, 700, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\title\\title_junjig.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -214,7 +221,7 @@ def sub_description(cla):
                                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\click\\tuto_bosang_soolyung.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(470, 650, 620, 700, cla, img, 0.8)
+                                imgs_ = imgs_set_(470, 590, 620, 700, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
@@ -305,18 +312,18 @@ def sub_description(cla):
 def sub_click(cla):
     import numpy as np
     import cv2
-    from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from function_game import imgs_set_, click_pos_reg, click_pos_2, drag_pos
 
     try:
         print("sub_click")
 
-        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\click\\tuto_complete_1.PNG"
+        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\sub\\power_10000.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 100, 100, 140, cla, img, 0.7)
+        imgs_ = imgs_set_(40, 130, 200, 185, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-            time.sleep(0.5)
+            drag_pos(100, 200, 100, 100, cla)
+            time.sleep(0.2)
 
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\click\\tuto_complete_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -419,14 +426,14 @@ def sub_click(cla):
                                                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\click\\tuto_bosang_soolyung.PNG"
                                                 img_array = np.fromfile(full_path, np.uint8)
                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(470, 650, 620, 700, cla, img, 0.8)
+                                                imgs_ = imgs_set_(470, 590, 620, 700, cla, img, 0.8)
                                                 if imgs_ is not None and imgs_ != False:
                                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                         else:
                                             full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\click\\tuto_bosang_soolyung.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(470, 580, 630, 630, cla, img, 0.8)
+                                            imgs_ = imgs_set_(470, 590, 620, 700, cla, img, 0.8)
                                             if imgs_ is not None and imgs_ != False:
                                                 click_pos_reg(imgs_.x, imgs_.y, cla)
 

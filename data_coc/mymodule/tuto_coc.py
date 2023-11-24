@@ -166,7 +166,7 @@ def tuto_description(cla):
                                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\click\\tuto_bosang_soolyung.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(470, 650, 620, 700, cla, img, 0.8)
+                                imgs_ = imgs_set_(470, 590, 620, 700, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
@@ -381,10 +381,16 @@ def tuto_click(cla):
                                     full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\click\\tuto_bosang_soolyung.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(470, 650, 620, 700, cla, img, 0.8)
+                                    imgs_ = imgs_set_(470, 590, 620, 700, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
-
+                            else:
+                                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\click\\tuto_bosang_soolyung.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(470, 590, 620, 700, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
     except Exception as e:
         print(e)
