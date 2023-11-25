@@ -48,6 +48,7 @@ from schedule import myQuest_play_check, myQuest_play_add
 from tuto_coc import tuto_start
 from sub_coc import sub_start
 from character_coc import character_select_screen
+from jadong_coc import jadong_start
 
 
 from stop_event18 import _stop_please
@@ -1024,43 +1025,16 @@ class FirstTab(QWidget):
 
         # 사냥터
         dir_path = "C:\\my_games\\" + str(v_.game_folder) + "\\" + str(v_.data_folder)
-        file_path1 = dir_path + "\\jadong\\moon_serabog.txt"
-        file_path2 = dir_path + "\\jadong\\moon_baran.txt"
-        file_path3 = dir_path + "\\jadong\\moon_countryregion.txt"
-        file_path4 = dir_path + "\\jadong\\moon_yourokina.txt"
+        file_path1 = dir_path + "\\imgs\\jadong\\jadong_list.txt"
 
         if os.path.isfile(file_path1) == True:
             with open(file_path1, "r", encoding='utf-8-sig') as file:
-                read_serabog = file.read().splitlines()
+                read_data = file.read().splitlines()
                 list5 = []
-                for i in range(len(read_serabog)):
-                    read_ready = read_serabog[i].split("_")
+                for i in range(len(read_data)):
+                    read_ready = read_data[i].split(":")
                     list5.append(read_ready[0])
-                list5.insert(0, "< 세라보그 >")
-
-            with open(file_path2, "r", encoding='utf-8-sig') as file:
-                read_baran = file.read().splitlines()
-                list55 = []
-                for i in range(len(read_baran)):
-                    read_2_ready = read_baran[i].split("_")
-                    list55.append(read_2_ready[0])
-                list55.insert(0, "< 바란 >")
-
-            with open(file_path3, "r", encoding='utf-8-sig') as file:
-                read_countryregioon = file.read().splitlines()
-                list555 = []
-                for i in range(len(read_countryregioon)):
-                    read_2_ready = read_countryregioon[i].split("_")
-                    list555.append(read_2_ready[0])
-                list555.insert(0, "< 국경지대 >")
-
-            with open(file_path4, "r", encoding='utf-8-sig') as file:
-                read_yourokina = file.read().splitlines()
-                list5555 = []
-                for i in range(len(read_yourokina)):
-                    read_2_ready = read_yourokina[i].split("_")
-                    list5555.append(read_2_ready[0])
-                list5555.insert(0, "< 유로키나산맥 >")
+                list5.insert(0, "< 사냥터 >")
 
             # with open(file_path3, "r", encoding='utf-8-sig') as file:
             #     read_1 = file.read()
@@ -1075,49 +1049,16 @@ class FirstTab(QWidget):
         cb5 = QComboBox()
         #list5 = ['자동 사냥터 선택1', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
         cb5.addItems(list5)
-        jadong1 = QPushButton('세라보그 추가')
+        jadong1 = QPushButton('사냥터 추가')
         jadong1.clicked.connect(self.onActivated_hunt_add)
-
-        cb55 = QComboBox()
-        #list55 = ['자동 사냥터 선택2', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
-        cb55.addItems(list55)
-        jadong2 = QPushButton('바란 추가')
-        jadong2.clicked.connect(self.onActivated_hunt_add_2)
-
-        cb555 = QComboBox()
-        #list555 = ['자동 사냥터 선택3', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
-        cb555.addItems(list555)
-        jadong3 = QPushButton('국경지대 추가')
-        jadong3.clicked.connect(self.onActivated_hunt_add_3)
-
-        cb5555 = QComboBox()
-        # list555 = ['자동 사냥터 선택3', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
-        cb5555.addItems(list5555)
-        jadong4 = QPushButton('유로키나산맥 추가')
-        jadong4.clicked.connect(self.onActivated_hunt_add_4)
 
 
         vbox5_1 = QHBoxLayout()
         vbox5_1.addWidget(cb5)
         vbox5_1.addWidget(jadong1)
 
-        vbox5_2 = QHBoxLayout()
-        vbox5_2.addWidget(cb55)
-        vbox5_2.addWidget(jadong2)
-
-        vbox5_3 = QHBoxLayout()
-        vbox5_3.addWidget(cb555)
-        vbox5_3.addWidget(jadong3)
-
-        vbox5_4 = QHBoxLayout()
-        vbox5_4.addWidget(cb5555)
-        vbox5_4.addWidget(jadong4)
-
         lastbox = QVBoxLayout()
         lastbox.addLayout(vbox5_1)
-        lastbox.addLayout(vbox5_2)
-        lastbox.addLayout(vbox5_3)
-        lastbox.addLayout(vbox5_4)
 
 
         self.com_group5.setLayout(lastbox)
@@ -1143,9 +1084,6 @@ class FirstTab(QWidget):
         # dun_g3_step.activated[str].connect(self.onActivated_dunjeon_3_step)  # 던전3 난이도
 
         cb5.activated[str].connect(self.onActivated_hunt)  # 요건 함수
-        cb55.activated[str].connect(self.onActivated_hunt2)  # 요건 함수
-        cb555.activated[str].connect(self.onActivated_hunt3)  # 요건 함수
-        cb5555.activated[str].connect(self.onActivated_hunt4)  # 요건 함수
         cb6.activated[str].connect(self.onActivated_maul)  # 요건 함수
 
         # self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
@@ -1732,54 +1670,12 @@ class FirstTab(QWidget):
         global onCharacter, onHunt
         char_ = onCharacter
         # hun_ = onHunt
-        hun_ = "사냥/serabog/" + onHunt
+        hun_ = "사냥_" + onHunt
         if onCharacter == 0:
             pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onHunt == '< 세라보그 >' or onHunt == 'none':
-            pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt != '< 세라보그 >':
-            print('char_', char_)
-            print('dun_', hun_)
-
-            if onCla == "One" or onCla == "Two":
-                data = "One:" + char_ + ":" + hun_ + ":대기중:" + "Two:" + char_ + ":" + hun_ + ":대기중\n"
-            elif onCla == "Three" or onCla == "Four":
-                data = "Three:" + char_ + ":" + hun_ + ":대기중:" + "Four:" + char_ + ":" + hun_ + ":대기중\n"
-
-
-            print(data)
-            self.onActivated_hunt_add2(data)
-    def onActivated_hunt_add_2(self):
-        global onCharacter, onHunt2
-        char_ = onCharacter
-        # hun_ = onHunt2
-        hun_ = "사냥/baran/" + onHunt2
-        if onCharacter == 0:
-            pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onHunt2 == '< 바란 >' or onHunt2 == 'none':
-            pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt2 != '< 바란 >':
-            print('char_', char_)
-            print('dun_', hun_)
-
-            if onCla == "One" or onCla == "Two":
-                data = "One:" + char_ + ":" + hun_ + ":대기중:" + "Two:" + char_ + ":" + hun_ + ":대기중\n"
-            elif onCla == "Three" or onCla == "Four":
-                data = "Three:" + char_ + ":" + hun_ + ":대기중:" + "Four:" + char_ + ":" + hun_ + ":대기중\n"
-
-
-            print(data)
-            self.onActivated_hunt_add2(data)
-    def onActivated_hunt_add_3(self):
-        global onCharacter, onHunt3
-        char_ = onCharacter
-        # hun_ = "사냥_" + "첼라노_" + onHunt3
-        hun_ = "사냥/countryregioon/" + onHunt3
-        if onCharacter == 0:
-            pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onHunt3 == '< 국경지대 >' or onHunt3 == 'none':
-            pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt3 != '< 국경지대 >':
+        elif onHunt == '< 사냥터 >' or onHunt == 'none':
+            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='뭐합니꺼')
+        elif onCharacter != 0 and onHunt != '< 사냥터 >':
             print('char_', char_)
             print('dun_', hun_)
 
@@ -1792,26 +1688,6 @@ class FirstTab(QWidget):
             print(data)
             self.onActivated_hunt_add2(data)
 
-    def onActivated_hunt_add_4(self):
-        global onCharacter, onHunt4
-        char_ = onCharacter
-        hun_ = "사냥/yourokina/" + onHunt4
-        if onCharacter == 0:
-            pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onHunt4 == '< 유로키나산맥 >' or onHunt4 == 'none':
-            pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt4 != '< 유로키나산맥 >':
-            print('char_', char_)
-            print('dun_', hun_)
-
-            if onCla == "One" or onCla == "Two":
-                data = "One:" + char_ + ":" + hun_ + ":대기중:" + "Two:" + char_ + ":" + hun_ + ":대기중\n"
-            elif onCla == "Three" or onCla == "Four":
-                data = "Three:" + char_ + ":" + hun_ + ":대기중:" + "Four:" + char_ + ":" + hun_ + ":대기중\n"
-
-
-            print(data)
-            self.onActivated_hunt_add2(data)
 
     def onActivated_hunt_add2(self, data):
         global onCharacter, onDunjeon, rowcount, colcount
@@ -3260,6 +3136,11 @@ class game_Playing(QThread):
                                         tuto_start(v_.now_cla)
                                     elif result_schedule_ == "서브퀘스트":
                                         sub_start(v_.now_cla)
+                                    elif "사냥" in result_schedule_:
+
+                                        result_where = result_schedule_.split("_")
+
+                                        jadong_start(v_.now_cla, result_where[1])
 
 
 
