@@ -171,14 +171,14 @@ def out_check(cla):
             full_path = "c:\\my_games\\coc\\data_coc\\imgs\\check\\out\\menu_click.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(880, 30, 950, 100, cla, img, 0.8)
+            imgs_ = imgs_set_(880, 30, 950, 100, cla, img, 0.7)
             if imgs_ is not None and imgs_ != False:
                 break
             else:
                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\check\\out\\out_check_event.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(230, 30, 320, 90, cla, img, 0.8)
+                imgs_ = imgs_set_(230, 30, 320, 90, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     break
                 else:
