@@ -18,6 +18,7 @@ def sub_start(cla):
     from schedule import myQuest_play_add
     from collection_coc import collection_start
     from boonhae_coc import boonhae_start
+    from potion_coc import potion_check
 
     try:
         print("sub_start")
@@ -30,6 +31,7 @@ def sub_start(cla):
             sub_description(cla)
         else:
             clean_screen(cla)
+            potion_check(cla)
 
         contents_exist = False
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\point_1.PNG"

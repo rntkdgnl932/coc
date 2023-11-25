@@ -81,9 +81,18 @@ def potion_buy(cla):
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_coc import clean_screen
     from massenger import line_to_me
+    from schedule import myQuest_play_check, myQuest_play_add
 
     try:
         print("potion_buy")
+
+        result_schedule = myQuest_play_check(v_.now_cla, "check")
+        character_id = result_schedule[0][1]
+        result_schedule_ = result_schedule[0][2]
+
+        if result_schedule_ == "튜토육성" or result_schedule_ == "서브퀘스트":
+            myQuest_play_add(cla, result_schedule_)
+            time.sleep(0.2)
 
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\sangjum.PNG"
         img_array = np.fromfile(full_path, np.uint8)
