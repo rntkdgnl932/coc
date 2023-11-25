@@ -13,18 +13,59 @@ def potion_check(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from action_coc import juljun_off
 
     try:
-        print("potion_check")
-        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\potion_small_no_have.PNG"
+        print("potion_check", v_.potion_count)
+
+        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\juljun\\juljun_mode.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(660, 960, 700, 1030, cla, img, 0.9)
+        imgs_ = imgs_set_(10, 95, 85, 135, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            print("no potion", imgs_)
-            v_.potion_count += 1
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\juljun_potion_have.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(500, 990, 570, 1030, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("potion have", v_.potion_count)
+                if v_.potion_count > 0:
+                    v_.potion_count -= 1
+            else:
+                print("no......", v_.potion_count)
+                v_.potion_count += 1
+
+        else:
+
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\potion_small_no_have.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(660, 960, 700, 1030, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                print("no potion 1", v_.potion_count, imgs_)
+                v_.potion_count += 1
+            else:
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\potion_small.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(660, 960, 700, 1030, cla, img, 0.9)
+                if imgs_ is not None and imgs_ != False:
+                    print("no potion 2", v_.potion_count, imgs_)
+                    v_.potion_count += 1
+                else:
+                    print("포션 있다.")
+                    if v_.potion_count > 0:
+                        v_.potion_count -= 1
 
         if v_.potion_count > 2:
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\juljun\\juljun_mode.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 95, 85, 135, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                juljun_off(cla)
+                time.sleep(0.2)
+
             v_.potion_count = 0
             potion_buy(cla)
 
@@ -36,8 +77,10 @@ def potion_check(cla):
 def potion_buy(cla):
     import numpy as np
     import cv2
+    import os
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_coc import clean_screen
+    from massenger import line_to_me
 
     try:
         print("potion_buy")
@@ -124,6 +167,12 @@ def potion_buy(cla):
                                     clean_screen(cla)
                                     break
                                 time.sleep(0.5)
+                        else:
+                            print("돈 없어 못 샀다.")
+                            why = "돈 없어서 물약 못 샀다. 주인님 기다린다."
+                            line_to_me(cla, why)
+                            time.sleep(60000)
+                            os.execl(sys.executable, sys.executable, *sys.argv)
 
 
                 else:

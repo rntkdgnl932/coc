@@ -14,6 +14,7 @@ def jadong_start(cla, where):
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_coc import juljun_off, juljun_on
+    from potion_coc import potion_check
 
     try:
         print("jadong_start", where)
@@ -45,14 +46,22 @@ def jadong_start(cla, where):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(430, 650, 530, 690, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    print("자동사냥중")
+                    print("자동사냥중", v_.attack_count)
+                    potion_check(cla)
+                    if v_.attack_count > 0:
+                        v_.attack_count -= 1
                 else:
-                    print("절전모드 해제 후 오토 버튼 누르기")
-                    juljun_off(cla)
-                    time.sleep(0.1)
-                    click_pos_2(911, 911, cla)
-                    time.sleep(0.2)
-                    juljun_on(cla)
+                    print("절전모드 해제 후 오토 버튼 누르기", v_.attack_count)
+
+                    v_.attack_count += 1
+
+                    if v_.attack_count > 2:
+
+                        juljun_off(cla)
+                        time.sleep(0.1)
+                        click_pos_2(911, 911, cla)
+                        time.sleep(0.2)
+                        juljun_on(cla)
 
             else:
                 print("자동사냥터로 ㄱㄱ")

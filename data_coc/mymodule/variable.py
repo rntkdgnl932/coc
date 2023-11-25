@@ -13,6 +13,8 @@ black_screen_count = 0
 not_boohwal = False
 # potion count
 potion_count = 0
+# 자동사냥중인지 카운트
+attack_count = 0
 
 
 # 게임 및 폴더 관련

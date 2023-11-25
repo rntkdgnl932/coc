@@ -45,7 +45,21 @@ def go_test():
     #
     # get_item(cla)
 
-    jadong_start(cla, "남매평원")
+    # jadong_start(cla, "남매평원")
+
+    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\buy.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(380, 630, 450, 680, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("활성화")
+
+    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\buy_no.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(380, 630, 450, 680, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("비비비비ㅣ비비활성화")
 
     # full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\potion_small_no_have.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
