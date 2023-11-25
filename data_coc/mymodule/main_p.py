@@ -47,6 +47,7 @@ from schedule import myQuest_play_check, myQuest_play_add
 
 from tuto_coc import tuto_start
 from sub_coc import sub_start
+from character_coc import character_select_screen
 
 
 from stop_event18 import _stop_please
@@ -3200,43 +3201,65 @@ class game_Playing(QThread):
 
                             else:
 
-                                # 스케쥴부터 불러오기
-                                result_schedule = myQuest_play_check(v_.now_cla, "check")
-                                print("result_schedule", result_schedule)
-                                character_id = result_schedule[0][1]
-                                result_schedule_ = result_schedule[0][2]
+                                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\check\\game_ready.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 600, 550, 650, v_.now_cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("game_waiting...")
+
+                                    waiting = True
+                                    waiting_count = 0
+                                    while waiting is True:
+                                        waiting_count += 5
+                                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\character\\title_server_select.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(40, 40, 140, 100, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            waiting = False
+                                        time.sleep(5)
+                                        print("wait...", waiting_count)
+
+                                else:
+
+                                    # 스케쥴부터 불러오기
+                                    result_schedule = myQuest_play_check(v_.now_cla, "check")
+                                    print("result_schedule", result_schedule)
+                                    character_id = result_schedule[0][1]
+                                    result_schedule_ = result_schedule[0][2]
 
 
-                                # 게임 시작 화면인지 분석부터 하기
-                                # game_start_screen(v_.now_cla, character_id)
+                                    # 게임 시작 화면인지 분석부터 하기
+                                    game_start_screen(v_.now_cla, character_id)
 
 
 
 
-                                # 18 이벤트창부터 끄자
-                                _stop_please(v_.now_cla)
+                                    # 18 이벤트창부터 끄자
+                                    _stop_please(v_.now_cla)
 
 
 
 
 
-                                # 죽었는지 파악
-                                # dead_die(v_.now_cla, result_schedule_)
+                                    # 죽었는지 파악
+                                    # dead_die(v_.now_cla, result_schedule_)
 
 
 
-                                # 일시적인 이벤트(5000)
-                                # temporary_event_start(v_.now_cla)
+                                    # 일시적인 이벤트(5000)
+                                    # temporary_event_start(v_.now_cla)
 
-                                # 지속적인 이벤트(5000)
-                                # realtime(v_.now_cla)
+                                    # 지속적인 이벤트(5000)
+                                    # realtime(v_.now_cla)
 
-                                # 오토 시작
+                                    # 오토 시작
 
-                                if result_schedule_ == "튜토육성":
-                                    tuto_start(v_.now_cla)
-                                elif result_schedule_ == "서브퀘스트":
-                                    sub_start(v_.now_cla)
+                                    if result_schedule_ == "튜토육성":
+                                        tuto_start(v_.now_cla)
+                                    elif result_schedule_ == "서브퀘스트":
+                                        sub_start(v_.now_cla)
 
 
 

@@ -11,6 +11,8 @@ tuto_dead = 0
 black_screen_count = 0
 # 부활금지
 not_boohwal = False
+# potion count
+potion_count = 0
 
 
 # 게임 및 폴더 관련

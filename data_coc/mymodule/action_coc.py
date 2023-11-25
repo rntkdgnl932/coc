@@ -224,3 +224,34 @@ def bag_open(cla):
     except Exception as e:
         print(e)
         return 0
+
+
+def loading(cla):
+    import numpy as np
+    import cv2
+    from function_game import imgs_set_, click_pos_reg, click_pos_2
+
+    try:
+        print("loading")
+
+        load = True
+        load_count = 0
+        while load is False:
+            load_count += 1
+            if load_count > 7:
+                load = True
+
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\loading\\loading.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(600, 900, 960, 1060, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                load_count = 0
+            time.sleep(0.3)
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+

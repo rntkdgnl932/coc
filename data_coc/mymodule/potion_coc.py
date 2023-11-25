@@ -16,6 +16,17 @@ def potion_check(cla):
 
     try:
         print("potion_check")
+        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\potion_small_no_have.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(660, 960, 700, 1030, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("no potion", imgs_)
+            v_.potion_count += 1
+
+        if v_.potion_count > 2:
+            v_.potion_count = 0
+            potion_buy(cla)
 
     except Exception as e:
         print(e)

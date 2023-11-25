@@ -43,12 +43,14 @@ def go_test():
     #
     # get_item(cla)
 
-    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\click\\tuto_bosang_soolyung.PNG"
+    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\potion_small_no_have.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(470, 590, 620, 700, cla, img, 0.8)
+    imgs_ = imgs_set_(660, 960, 700, 1030, cla, img, 0.9)
     if imgs_ is not None and imgs_ != False:
         print("hi", imgs_)
+    else:
+        print("noooooooooooooo")
 
 
     # get_event_bosang(cla)
