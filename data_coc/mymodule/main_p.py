@@ -3215,7 +3215,7 @@ class game_Playing(QThread):
                                         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\character\\title_server_select.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(40, 40, 140, 100, cla, img, 0.8)
+                                        imgs_ = imgs_set_(40, 40, 140, 100, v_.now_cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
                                             waiting = False
                                         time.sleep(5)
@@ -3231,7 +3231,7 @@ class game_Playing(QThread):
 
 
                                     # 게임 시작 화면인지 분석부터 하기
-                                    game_start_screen(v_.now_cla, character_id)
+                                    character_select_screen(v_.now_cla, character_id)
 
 
 
