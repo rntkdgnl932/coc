@@ -13,7 +13,7 @@ def moohan_top_start(cla, where):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
-    from action_coc import juljun_off, juljun_on
+    from action_coc import juljun_off, juljun_on, loading
     from potion_coc import potion_check
 
     try:
