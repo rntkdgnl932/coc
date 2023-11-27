@@ -305,6 +305,8 @@ def dungeon_in(cla, where):
                         time.sleep(3)
                     else:
                         click_pos_2(480, 705, cla)
+                        time.sleep(1)
+                        clean_screen(cla)
                 else:
                     if result_dun_where[1] == "언더어스의미궁":
                         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\underus_migoong_dun_in_ready.PNG"
