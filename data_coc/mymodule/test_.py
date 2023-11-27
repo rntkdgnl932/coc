@@ -47,12 +47,12 @@ def go_test():
 
     # jadong_start(cla, "남매평원")
 
-    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\confirm.PNG"
+    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\dead.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(480, 630, 580, 670, cla, img, 0.7)
+    imgs_ = imgs_set_(400, 300, 700, 700, cla, img, 0.7)
     if imgs_ is not None and imgs_ != False:
-        print("레벨이 안된다.")
+        print("죽었다...")
 
     # full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\potion_small_no_have.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

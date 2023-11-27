@@ -25,6 +25,14 @@ def moohan_top_start(cla, where):
         # result_dun_where[1] => 던전이름...무한의탑
         # result_dun_where[2] => 층수(무한의탑은 의미 없는 듯)
 
+        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\dead.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 300, 700, 700, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            print("죽었다...")
+            click_pos_reg(imgs_.x - 100, imgs_.y + 300, cla)
+
 
         # 현재 무한의탑 진행중인지 파악 후 진행중이 아니라면 dungeon_in, 던전이라면 물약 등 체크
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_top_ing.PNG"
@@ -49,9 +57,21 @@ def moohan_top_start(cla, where):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
-                print("실패시 나가기 버튼 누르기")
-                potion_check(cla)
-                moohan_top_in(cla, where)
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\fail.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(360, 70, 600, 200, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\dun_out.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(360, 900, 760, 1030, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("dun_out")
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        potion_check(cla)
+                else:
+                    moohan_top_in(cla, where)
 
 
     except Exception as e:
