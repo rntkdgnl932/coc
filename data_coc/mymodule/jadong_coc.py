@@ -13,8 +13,11 @@ def jadong_start(cla, where):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
-    from action_coc import juljun_off, juljun_on
+    from action_coc import juljun_off, juljun_on, clean_screen
     from potion_coc import potion_check
+    from get_item_coc import get_item
+    from collection_coc import collection_start
+    from boonhae_coc import boonhae_start
 
     try:
         print("jadong_start", where)
@@ -29,6 +32,29 @@ def jadong_start(cla, where):
                     print("where", read_jadong)
                     break
 
+        contents_exist = False
+        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\point_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(260, 30, 300, 60, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            contents_exist = True
+        else:
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\point_1_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(260, 30, 300, 60, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                contents_exist = True
+
+        if contents_exist == True:
+            get_item(cla)
+            time.sleep(0.1)
+            collection_start(cla)
+            time.sleep(0.1)
+            boonhae_start(cla)
+            time.sleep(0.1)
+            clean_screen(cla)
 
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\juljun\\juljun_mode.PNG"
         img_array = np.fromfile(full_path, np.uint8)
