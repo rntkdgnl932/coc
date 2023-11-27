@@ -36,6 +36,7 @@ def clean_screen(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from potion_coc import potion_check
 
     try:
         print("clean_screen")
@@ -49,6 +50,10 @@ def clean_screen(cla):
         if imgs_ is not None and imgs_ != False:
             print("죽었다...")
             click_pos_reg(imgs_.x - 100, imgs_.y + 300, cla)
+            time.sleep(1)
+            result_out = out_check(cla)
+            if result_out == True:
+                potion_check(cla)
 
         # 포션 닫기
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\potion_exit_1.PNG"
