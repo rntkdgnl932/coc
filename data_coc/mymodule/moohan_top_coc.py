@@ -50,6 +50,7 @@ def moohan_top_start(cla, where):
                     click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
                 print("실패시 나가기 버튼 누르기")
+                potion_check(cla)
                 moohan_top_in(cla, where)
 
 

@@ -158,6 +158,7 @@ def dungeon_start(cla, where):
 
 
             if sf == False:
+                potion_check(cla)
                 dungeon_in(cla, where)
         else:
             full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\dun_out.PNG"
