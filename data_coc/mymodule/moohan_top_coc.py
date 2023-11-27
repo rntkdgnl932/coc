@@ -207,6 +207,7 @@ def moohan_top_in(cla, where):
                         myQuest_play_add(cla, where)
 
                 else:
+                    print("무한의탑 실행하자")
                     click_pos_2(480, 1000, cla)
 
                     full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_top_in.PNG"
