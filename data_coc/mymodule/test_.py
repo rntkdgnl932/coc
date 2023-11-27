@@ -47,19 +47,12 @@ def go_test():
 
     # jadong_start(cla, "남매평원")
 
-    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\buy.PNG"
+    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\confirm.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(380, 630, 450, 680, cla, img, 0.8)
+    imgs_ = imgs_set_(480, 630, 580, 670, cla, img, 0.7)
     if imgs_ is not None and imgs_ != False:
-        print("활성화")
-
-    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\buy_no.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(380, 630, 450, 680, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("비비비비ㅣ비비활성화")
+        print("레벨이 안된다.")
 
     # full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\potion_small_no_have.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
