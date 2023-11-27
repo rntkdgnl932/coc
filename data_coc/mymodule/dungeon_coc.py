@@ -222,45 +222,64 @@ def dungeon_in(cla, where):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(430, 360, 540, 400, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
-                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\join_now.PNG"
+
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\55_full.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(480, 660, 610, 700, cla, img, 0.7)
+                imgs_ = imgs_set_(340, 615, 460, 660, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                    for i in range(10):
-                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\underus_migoong_map_title1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(770, 80, 860, 105, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            print("진행중...1")
-                            break
-                        else:
-                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\underus_migoong_map_title2.PNG"
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\join_now.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(480, 660, 610, 700, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                        for i in range(10):
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\underus_migoong_map_title1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 30, 500, 70, cla, img, 0.7)
+                            imgs_ = imgs_set_(770, 80, 860, 105, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                print("진행중...2")
+                                print("진행중...1")
                                 break
                             else:
-                                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\join_now.PNG"
+                                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\underus_migoong_map_title2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(480, 660, 610, 700, cla, img, 0.7)
+                                imgs_ = imgs_set_(400, 30, 500, 70, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    print("진행중...2")
+                                    break
                                 else:
-                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\loading\\loading.PNG"
+                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\join_now.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(600, 900, 960, 1060, cla, img, 0.8)
+                                    imgs_ = imgs_set_(480, 660, 610, 700, cla, img, 0.7)
                                     if imgs_ is not None and imgs_ != False:
-                                        loading(cla)
-                        time.sleep(0.5)
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    else:
+                                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\loading\\loading.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(600, 900, 960, 1060, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            loading(cla)
+                            time.sleep(0.5)
+                        dun_go = True
+                else:
                     dun_go = True
+
+                    for i in range(10):
+                        result_out = out_check(cla)
+                        if result_out == False:
+                            clean_screen(cla)
+                        else:
+                            break
+                        time.sleep(0.5)
+
+
             else:
                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\party_information.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
