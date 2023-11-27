@@ -406,6 +406,7 @@ def dungeon_in(cla, where):
                                                 else:
                                                     break
                                                 time.sleep(0.5)
+
                                 elif case == 1:
                                     for c in range(5):
                                         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\confirm.PNG"
