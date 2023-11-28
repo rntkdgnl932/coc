@@ -14,6 +14,8 @@ def get_item(cla):
     import cv2
     from potion_coc import potion_check
     from action_coc import out_check, clean_screen
+    from collection_coc import collection_start
+    from boonhae_coc import boonhae_start
 
     try:
         print("get_item")
@@ -21,6 +23,11 @@ def get_item(cla):
         result_out = out_check(cla)
         if result_out == False:
             clean_screen(cla)
+
+        collection_start(cla)
+        time.sleep(0.1)
+        boonhae_start(cla)
+        time.sleep(0.1)
 
         potion_check(cla)
 

@@ -16,8 +16,6 @@ def jadong_start(cla, where):
     from action_coc import juljun_off, juljun_on, clean_screen
     from potion_coc import potion_check
     from get_item_coc import get_item
-    from collection_coc import collection_start
-    from boonhae_coc import boonhae_start
 
     try:
         print("jadong_start", where)
@@ -49,10 +47,6 @@ def jadong_start(cla, where):
 
         if contents_exist == True:
             get_item(cla)
-            time.sleep(0.1)
-            collection_start(cla)
-            time.sleep(0.1)
-            boonhae_start(cla)
             time.sleep(0.1)
             clean_screen(cla)
 
