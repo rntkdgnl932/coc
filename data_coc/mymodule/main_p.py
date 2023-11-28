@@ -3145,6 +3145,7 @@ class game_Playing(QThread):
 
                                     elif result_schedule_ == "각종템받기":
                                         get_item(v_.now_cla)
+                                        myQuest_play_add(v_.now_cla, result_schedule_)
 
                                     elif "사냥" in result_schedule_:
                                         result_where = result_schedule_.split("_")
