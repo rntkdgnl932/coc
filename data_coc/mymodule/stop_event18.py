@@ -38,7 +38,7 @@ def _stop_please(cla):
             os.execl(sys.executable, sys.executable, *sys.argv)
         else:
             full_path = "c:\\my_games\\" + str(v_.game_folder) + "\\" + str(
-                v_.data_folder) + "\\imgs\\check\\loss_connection.PNG"
+                v_.data_folder) + "\\imgs\\check\\server_fix\\loss_connection.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(450, 490, 550, 520, cla, img, 0.7)
