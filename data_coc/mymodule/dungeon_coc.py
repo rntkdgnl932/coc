@@ -191,6 +191,8 @@ def dungeon_in(cla, where):
     try:
         print("dungeon_in", where)
 
+        clean_screen(cla)
+
         result_dun_where = where.split("_")
 
         # result_dun_where[0] => 던전

@@ -114,6 +114,8 @@ def moohan_top_in(cla, where):
     try:
         print("moohan_top_in", where)
 
+        clean_screen(cla)
+
         result_dun_where = where.split("_")
 
         # result_dun_where[0] => 던전
