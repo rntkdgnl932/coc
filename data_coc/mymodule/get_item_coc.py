@@ -533,6 +533,16 @@ def get_start_sayoung(cla):
                         break
                     time.sleep(0.1)
 
+                for i in range(10):
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\tuto\\take_on\\take_on.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(680, 500, 900, 700, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        break
+                    time.sleep(0.1)
+
             else:
                 sayoung_count += 1
                 time.sleep(0.1)
