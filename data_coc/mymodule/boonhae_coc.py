@@ -13,7 +13,8 @@ def boonhae_start(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2, drag_pos
-    from action_coc import bag_open
+    from action_coc import bag_open, clean_screen
+
 
     try:
         print("boonhae_start")
@@ -89,7 +90,7 @@ def boonhae_start(cla):
                 drag_pos(810, 610, 810, 440, cla)
                 time.sleep(0.1)
 
-
+        clean_screen(cla)
 
     except Exception as e:
         print(e)
