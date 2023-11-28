@@ -41,6 +41,8 @@ def get_item(cla):
 
         get_post(cla)
 
+        clean_screen(cla)
+
     except Exception as e:
         print(e)
         return 0
