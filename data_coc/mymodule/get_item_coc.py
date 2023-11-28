@@ -12,16 +12,25 @@ sys.path.append('C:/my_games/' + str(v_.game_folder) + '/' + str(v_.data_folder)
 def get_item(cla):
     import numpy as np
     import cv2
-    from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from potion_coc import potion_check
+    from action_coc import out_check, clean_screen
 
     try:
         print("get_item")
+
+        result_out = out_check(cla)
+        if result_out == False:
+            clean_screen(cla)
+
+        potion_check(cla)
 
         get_contents_bosang(cla)
 
         get_event_bosang(cla)
 
         get_chulsuk_bosang(cla)
+
+        get_server_post(cla)
 
         get_post(cla)
 
@@ -93,6 +102,13 @@ def get_event_bosang(cla):
     try:
         print("get_event_bosang")
 
+        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\event_bosang\\event_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(430, 310, 540, 355, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            clean_screen(cla)
+
         event_exist = False
 
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\event_bosang\\point_1.PNG"
@@ -151,7 +167,7 @@ def get_event_bosang(cla):
                                     time.sleep(0.5)
                                 break
                             time.sleep(0.2)
-                        for t in range(10):
+                        for t in range(15):
                             full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\event_bosang\\mission_information_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -160,7 +176,7 @@ def get_event_bosang(cla):
                                 click_pos_2(765, 345, cla)
                             else:
                                 break
-                            time.sleep(0.2)
+                            time.sleep(0.5)
 
                     # 모두 수령하기
                     full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\event_bosang\\get_all_confirm.PNG"
@@ -191,6 +207,13 @@ def get_chulsuk_bosang(cla):
 
     try:
         print("get_chulsuk_bosang")
+
+        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\chulsuk_bosang\\chulsuk_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(430, 310, 540, 355, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            clean_screen(cla)
 
         chulsuk_exist = True
 
@@ -292,24 +315,6 @@ def get_post(cla):
                 else:
                     post = False
 
-                    for i in range(10):
-                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\action\\post\\post_title.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(430, 300, 510, 340, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\exit_1.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(0, 30, 960, 1060, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                print("exit_1", imgs_)
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                        else:
-                            break
-                        time.sleep(0.3)
-
-
             else:
                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\action\\post\\menu_post.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -329,11 +334,151 @@ def get_post(cla):
                     menu_open(cla)
             time.sleep(0.5)
 
+        for i in range(10):
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\action\\post\\post_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(430, 300, 510, 340, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\exit_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 30, 960, 1060, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("exit_1", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                break
+            time.sleep(0.3)
 
 
     except Exception as e:
         print(e)
         return 0
+
+
+def get_server_post(cla):
+    import numpy as np
+    import cv2
+    from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from action_coc import clean_screen, menu_open
+
+    try:
+        print("get_server_post")
+
+        post = True
+        post_count = 0
+        while post is True:
+            post_count += 1
+            if post_count > 7:
+                post = False
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\title\\title_sangjum.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 30, 100, 100, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("title_sangjum")
+
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\sangjum_server_post\\all_get.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 990, 940, 1030, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
+
+
+                    for i in range(10):
+
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\sangjum_server_post\\one_get.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(835, 140, 940, 940, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\sangjum_server_post\\all_get.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(800, 990, 940, 1030, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\title\\title_sangjum.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(10, 30, 100, 100, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                clean_screen(cla)
+                            else:
+                                post = False
+                                break
+                        time.sleep(0.5)
+
+                else:
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\sangjum_server_post\\server_post_click.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(220, 80, 330, 120, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
+
+
+            else:
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\sangjum_server_post\\menu_sangjum.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 30, 850, 90, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\title\\title_sangjum.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(10, 30, 100, 100, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        else:
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\sangjum_server_post\\menu_sangjum.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(800, 30, 850, 90, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.3)
+                else:
+                    menu_open(cla)
+            time.sleep(0.5)
+        for i in range(10):
+
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\sangjum_server_post\\one_get.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(835, 140, 940, 940, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\sangjum_server_post\\all_get.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 990, 940, 1030, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\title\\title_sangjum.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 30, 100, 100, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    clean_screen(cla)
+                else:
+                    post = False
+                    break
+            time.sleep(0.5)
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+
 
 def get_start_sayoung(cla):
     import numpy as np
@@ -348,7 +493,7 @@ def get_start_sayoung(cla):
         sayoung_count = 0
         while sayoung is True:
             sayoung_count += 1
-            if sayoung_count > 7:
+            if sayoung_count > 10:
                 sayoung = False
             full_path = "c:\\my_games\\coc\\data_coc\\imgs\\check\\start\\sayoung.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -378,6 +523,15 @@ def get_start_sayoung(cla):
                         time.sleep(0.2)
                         break
                     time.sleep(0.3)
+                for i in range(10):
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\sayoung\\get_result.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(410, 380, 500, 420, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        break
+                    time.sleep(0.1)
 
             else:
                 sayoung_count += 1

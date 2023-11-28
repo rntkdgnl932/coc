@@ -51,6 +51,7 @@ from character_coc import character_select_screen
 from jadong_coc import jadong_start
 from dungeon_coc import dungeon_start
 from moohan_top_coc import moohan_top_start
+from get_item_coc import get_start_sayoung, get_item
 
 from stop_event18 import _stop_please
 
@@ -3115,8 +3116,13 @@ class game_Playing(QThread):
                                     _stop_please(v_.now_cla)
 
 
-
-
+                                    # 아이템 열기
+                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\check\\start\\sayoung.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(700, 500, 900, 700, v_.now_cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        get_start_sayoung(v_.now_cla)
 
                                     # 죽었는지 파악
                                     # dead_die(v_.now_cla, result_schedule_)
@@ -3136,6 +3142,9 @@ class game_Playing(QThread):
 
                                     elif result_schedule_ == "서브퀘스트":
                                         sub_start(v_.now_cla)
+
+                                    elif result_schedule_ == "각종템받기":
+                                        get_item(v_.now_cla)
 
                                     elif "사냥" in result_schedule_:
                                         result_where = result_schedule_.split("_")

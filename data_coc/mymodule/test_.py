@@ -20,7 +20,7 @@ def go_test():
     from jadong_coc import jadong_start
 
 
-    from get_item_coc import get_item, get_post, get_chulsuk_bosang, get_event_bosang
+    from get_item_coc import get_item, get_post, get_chulsuk_bosang, get_event_bosang, get_server_post, get_start_sayoung
     from collection_coc import collection_start
     from boonhae_coc import boonhae_setting, boonhae_start
     from potion_coc import potion_buy
@@ -47,12 +47,14 @@ def go_test():
 
     # jadong_start(cla, "남매평원")
 
-    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\dead.PNG"
+    get_item(cla)
+
+    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\event_bosang\\get_all_confirm.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(400, 300, 700, 700, cla, img, 0.7)
+    imgs_ = imgs_set_(680, 430, 880, 750, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("죽었다...")
+        print("18_1")
 
     # full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\potion_small_no_have.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
