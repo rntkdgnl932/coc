@@ -15,6 +15,7 @@ def moohan_top_start(cla, where):
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_coc import juljun_off, juljun_on, loading
     from potion_coc import potion_check
+    from schedule import myQuest_play_add
 
     try:
         print("moohan_top_start", where)
@@ -62,6 +63,10 @@ def moohan_top_start(cla, where):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(360, 70, 600, 200, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
+
+                    myQuest_play_add(cla, where)
+                    time.sleep(0.2)
+
                     full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\dun_out.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
