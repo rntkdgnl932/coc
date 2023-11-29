@@ -47,14 +47,21 @@ def go_test():
 
     # jadong_start(cla, "남매평원")
 
-    get_item(cla)
+    # get_item(cla)
 
-    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\event_bosang\\get_all_confirm.PNG"
+    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\fail.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(680, 430, 880, 750, cla, img, 0.8)
+    imgs_ = imgs_set_(300, 70, 600, 400, cla, img, 0.7)
     if imgs_ is not None and imgs_ != False:
-        print("18_1")
+        print("18_1111111222221111")
+    else:
+        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\fail.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(300, 70, 600, 400, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            print("999999999999999999")
 
     # full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\potion_small_no_have.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

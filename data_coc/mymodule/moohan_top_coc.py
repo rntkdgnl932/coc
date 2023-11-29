@@ -61,7 +61,7 @@ def moohan_top_start(cla, where):
                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\fail.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(300, 70, 700, 400, cla, img, 0.7)
+                imgs_ = imgs_set_(300, 70, 600, 400, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
 
                     myQuest_play_add(cla, where)
@@ -109,6 +109,7 @@ def moohan_top_in(cla, where):
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_coc import menu_open, loading, clean_screen
     from schedule import myQuest_play_add
+    from potion_coc import potion_check
 
 
     try:
@@ -309,32 +310,83 @@ def moohan_top_in(cla, where):
                             click_pos_2(175, 110, cla)
                             time.sleep(0.5)
                 else:
-                    menu_open(cla)
-                    time.sleep(0.1)
-                    for i in range(5):
-                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\title\\title_dungeon.PNG"
+
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_success.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(360, 70, 580, 140, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("moohan_success")
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_next.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(10, 30, 100, 80, cla, img, 0.7)
+                        imgs_ = imgs_set_(480, 710, 545, 745, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\fail.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(300, 70, 600, 400, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
 
-                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_top_in.PNG"
+                            myQuest_play_add(cla, where)
+                            time.sleep(0.2)
+
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\dun_out.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(740, 400, 820, 440, cla, img, 0.7)
+                            imgs_ = imgs_set_(360, 900, 760, 1030, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                break
-                            else:
-                                click_pos_2(175, 110, cla)
-                                time.sleep(0.5)
-                        else:
-                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\menu_dungeon.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(700, 180, 950, 300, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
+                                print("dun_out")
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(0.5)
+
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\dead.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(400, 300, 700, 700, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("죽었다...")
+                                        click_pos_reg(imgs_.x - 100, imgs_.y + 300, cla)
+                                        break
+                                    else:
+                                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\loading\\loading.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(600, 900, 960, 1060, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            loading(cla)
+                                    time.sleep(0.5)
+
+                                potion_check(cla)
+                        else:
+                            menu_open(cla)
+                            time.sleep(0.1)
+                            for i in range(5):
+                                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\title\\title_dungeon.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(10, 30, 100, 80, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+
+                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_top_in.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(740, 400, 820, 440, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        break
+                                    else:
+                                        click_pos_2(175, 110, cla)
+                                        time.sleep(0.5)
+                                else:
+                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\menu_dungeon.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(700, 180, 950, 300, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
 
 
     except Exception as e:
