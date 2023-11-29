@@ -15,6 +15,8 @@ def dungeon_start(cla, where):
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_coc import juljun_off, juljun_on, out_check
     from potion_coc import potion_check
+    from collection_coc import collection_start
+    from boonhae_coc import boonhae_start
 
     try:
         print("dungeon_start", where)
@@ -158,8 +160,17 @@ def dungeon_start(cla, where):
 
 
             if sf == False:
-                potion_check(cla)
-                dungeon_in(cla, where)
+                result_out = out_check(cla)
+
+                if result_out == False:
+                    juljun_off(cla)
+                    collection_start(cla)
+                    time.sleep(0.1)
+                    boonhae_start(cla)
+                    time.sleep(0.1)
+                else:
+                    potion_check(cla)
+                    dungeon_in(cla, where)
         else:
             full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\dun_out.PNG"
             img_array = np.fromfile(full_path, np.uint8)
