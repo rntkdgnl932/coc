@@ -25,6 +25,8 @@ def confirm_all(cla):
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
+        # 자동 사냥 이동
+
 
 
     except Exception as e:
