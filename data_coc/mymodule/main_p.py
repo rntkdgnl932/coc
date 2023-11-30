@@ -3123,6 +3123,13 @@ class game_Playing(QThread):
                                     imgs_ = imgs_set_(700, 500, 900, 700, v_.now_cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         get_start_sayoung(v_.now_cla)
+                                    else:
+                                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\check\\start\\max.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(500, 500, 650, 650, v_.now_cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            get_start_sayoung(v_.now_cla)
 
                                     # 죽었는지 파악
                                     # dead_die(v_.now_cla, result_schedule_)
