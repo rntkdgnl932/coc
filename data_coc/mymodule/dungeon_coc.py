@@ -157,8 +157,14 @@ def dungeon_start(cla, where):
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_2(780, 215, cla)
                                 time.sleep(0.5)
-
-
+                    else:
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\join_allow_55_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(430, 360, 540, 400, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            dungeon_in(cla, where)
+                            sf = True
             if sf == False:
                 result_out = out_check(cla)
 
