@@ -35,6 +35,7 @@ def confirm_all(cla):
 def clean_screen(cla):
     import numpy as np
     import cv2
+    import pyautogui
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from potion_coc import potion_check
 
