@@ -125,6 +125,16 @@ def boonhae_setting(cla):
             click_pos_reg(imgs_.x, imgs_.y, cla)
             time.sleep(0.2)
 
+        # 장신구 체크하기
+        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\not_checked.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(380, 440, 440, 480, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            print("방어구 not_checked")
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+            time.sleep(0.2)
+
         # 일반 등급 체크하기
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\not_checked.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -144,6 +154,14 @@ def boonhae_setting(cla):
             print("고급 등급 not_checked")
             click_pos_reg(imgs_.x, imgs_.y, cla)
             time.sleep(0.2)
+
+        # 775, 560
+        # 755, 355
+        time.sleep(0.2)
+        click_pos_2(775, 560, cla)
+        time.sleep(0.2)
+        click_pos_2(755, 355, cla)
+        time.sleep(0.2)
 
         # 착용장비보다 전투력 낮은 장비만 분해 체크하기
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\not_checked.PNG"

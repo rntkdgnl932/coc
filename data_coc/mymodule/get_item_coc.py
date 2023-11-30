@@ -494,6 +494,8 @@ def get_start_sayoung(cla):
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action_coc import clean_screen
+    from collection_coc import collection_start
+    from boonhae_coc import boonhae_start
 
     try:
         print("get_start_sayoung")
@@ -509,6 +511,12 @@ def get_start_sayoung(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(700, 500, 900, 700, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
+
+                collection_start(cla)
+                time.sleep(0.1)
+                boonhae_start(cla)
+                time.sleep(0.1)
+
                 click_pos_reg(imgs_.x, imgs_.y, cla)
 
                 for i in range(10):
