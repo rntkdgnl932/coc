@@ -96,75 +96,75 @@ def dungeon_start(cla, where):
 
             else:
 
-                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_success.PNG"
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\join_allow_55_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(360, 70, 600, 200, cla, img, 0.7)
+                imgs_ = imgs_set_(430, 360, 540, 400, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\re_dojun.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(360, 900, 760, 1030, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        print("re_dojun")
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        sf = True
+                    dungeon_in(cla, where)
+                    sf = True
                 else:
-                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\fail.PNG"
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_success.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(360, 70, 600, 200, cla, img, 0.7)
                     if imgs_ is not None and imgs_ != False:
-                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\dun_out.PNG"
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\re_dojun.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(360, 900, 760, 1030, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            print("dun_out")
+                            print("re_dojun")
                             click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                            for i in range(10):
-
-                                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\party_information.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(430, 335, 520, 380, cla, img, 0.7)
-                                if imgs_ is not None and imgs_ != False:
-
-                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\confirm.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(480, 590, 620, 630, cla, img, 0.7)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        break
-                                    else:
-                                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\join_out.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(130, 630, 830, 680, cla, img, 0.7)
-                                        if imgs_ is not None and imgs_ != False:
-                                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                                            time.sleep(0.5)
-
-
-                                else:
-                                    if result_dun_where[1] == "언더어스의미궁":
-                                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\underus_migoong_dun_in_ready.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(800, 190, 900, 220, cla, img, 0.7)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_2(780, 215, cla)
-                                time.sleep(0.5)
+                            sf = True
                     else:
-                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\join_allow_55_title.PNG"
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\fail.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(430, 360, 540, 400, cla, img, 0.8)
+                        imgs_ = imgs_set_(360, 70, 600, 200, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
-                            dungeon_in(cla, where)
-                            sf = True
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\dun_out.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(360, 900, 760, 1030, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                print("dun_out")
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                                for i in range(10):
+
+                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\party_information.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(430, 335, 520, 380, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+
+                                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\confirm.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(480, 590, 620, 630, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            break
+                                        else:
+                                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\join_out.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(130, 630, 830, 680, cla, img, 0.7)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                time.sleep(0.5)
+
+
+                                    else:
+                                        if result_dun_where[1] == "언더어스의미궁":
+                                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\underus_migoong_dun_in_ready.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(800, 190, 900, 220, cla, img, 0.7)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_2(780, 215, cla)
+                                    time.sleep(0.5)
             if sf == False:
                 result_out = out_check(cla)
 
