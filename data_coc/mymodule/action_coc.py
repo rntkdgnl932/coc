@@ -152,7 +152,7 @@ def clean_screen(cla):
                             full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\exit_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            for i in pyautogui.locateAllOnScreen(img, region=(0 + plus, 960, 40, 1030), confidence=0.7):
+                            for i in pyautogui.locateAllOnScreen(img, region=(0 + plus, 30, 960, 1030), confidence=0.7):
                                 last_x = i.left
                                 last_y = i.top
                                 print("last_x", last_x)
@@ -163,7 +163,7 @@ def clean_screen(cla):
                             full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\exit_2.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            for i in pyautogui.locateAllOnScreen(img, region=(0 + plus, 960, 40, 1030), confidence=0.7):
+                            for i in pyautogui.locateAllOnScreen(img, region=(0 + plus, 30, 960, 1030), confidence=0.7):
                                 last_x = i.left
                                 last_y = i.top
                                 print("last_x", last_x)

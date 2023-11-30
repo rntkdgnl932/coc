@@ -16,7 +16,7 @@ def go_test():
     import random
 
     from function_game import imgs_set_, click_pos_reg, drag_pos
-    from action_coc import juljun_off, juljun_on
+    from action_coc import juljun_off, juljun_on, clean_screen
     from jadong_coc import jadong_start
 
 
@@ -29,7 +29,7 @@ def go_test():
 
 
     print("test")
-    cla = "one"
+    cla = "four"
 
     plus = 0
 
@@ -44,21 +44,21 @@ def go_test():
         plus = 960 * 3
     #
     # get_item(cla)
-
+    clean_screen(cla)
     # jadong_start(cla, "남매평원")
 
     # get_item(cla)
-
-    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\exit_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    for i in pyautogui.locateAllOnScreen(img, region=(680 + plus, 90, 40, 170), confidence=0.7):
-        last_x = i.left
-        last_y = i.top
-        print("last_x", last_x)
-        print("last_y", last_y)
-    if last_x != 0:
-        print("얏호")
+    #
+    # full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\exit_1.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # for i in pyautogui.locateAllOnScreen(img, region=(680 + plus, 90, 40, 170), confidence=0.7):
+    #     last_x = i.left
+    #     last_y = i.top
+    #     print("last_x", last_x)
+    #     print("last_y", last_y)
+    # if last_x != 0:
+    #     print("얏호")
 
     # full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\potion_small_no_have.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
