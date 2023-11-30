@@ -199,6 +199,7 @@ def potion_buy(cla):
                             if imgs_ is not None and imgs_ != False:
                                 break
                             time.sleep(0.2)
+                time.sleep(0.5)
 
 
 
