@@ -49,19 +49,16 @@ def go_test():
 
     # get_item(cla)
 
-    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\fail.PNG"
+    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\exit_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(300, 70, 600, 400, cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("18_1111111222221111")
-    else:
-        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\fail.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(300, 70, 600, 400, cla, img, 0.7)
-        if imgs_ is not None and imgs_ != False:
-            print("999999999999999999")
+    for i in pyautogui.locateAllOnScreen(img, region=(680 + plus, 90, 40, 170), confidence=0.7):
+        last_x = i.left
+        last_y = i.top
+        print("last_x", last_x)
+        print("last_y", last_y)
+    if last_x != 0:
+        print("얏호")
 
     # full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\potion_small_no_have.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
@@ -82,3 +79,14 @@ def go_test():
 
 
     # get_event_bosang(cla)
+
+    #         full_path = "c:\\my_games\\nightcrow\\data_nc\\imgs\\grow\\grow_1\\" + pic_ + ".PNG"
+    #         img_array = np.fromfile(full_path, np.uint8)
+    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #         for i in pyautogui.locateAllOnScreen(img, region=(680 + plus, 90, 40, 170), confidence=0.7):
+    #             last_x = i.left
+    #             last_y = i.top
+    #             print("last_x", last_x)
+    #             print("last_y", last_y)
+    #         if last_x != 0:
+    #             print("얏호")

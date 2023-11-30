@@ -41,6 +41,15 @@ def clean_screen(cla):
     try:
         print("clean_screen")
 
+        if cla == "one":
+            plus = 0
+        elif cla == "two":
+            plus = 960
+        elif cla == "three":
+            plus = 960 * 2
+        elif cla == "four":
+            plus = 960 * 3
+
         confirm_all(cla)
 
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\dead.PNG"
@@ -86,14 +95,31 @@ def clean_screen(cla):
                     imgs_ = imgs_set_(0, 30, 960, 1060, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("exit_1", imgs_)
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
 
                         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\exit_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(600, 30, 960, 1060, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        for i in pyautogui.locateAllOnScreen(img, region=(0 + plus, 960, 40, 1030), confidence=0.7):
+                            last_x = i.left
+                            last_y = i.top
+                            print("last_x", last_x)
+                            print("last_y", last_y)
+                            click_pos_reg(last_x, last_y, cla)
+                            time.sleep(0.2)
+
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\exit_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        for i in pyautogui.locateAllOnScreen(img, region=(0 + plus, 960, 40, 1030), confidence=0.7):
+                            last_x = i.left
+                            last_y = i.top
+                            print("last_x", last_x)
+                            print("last_y", last_y)
+                            click_pos_reg(last_x, last_y, cla)
+                            time.sleep(0.2)
+
+
+
 
                     else:
                         # 창닫기 2
@@ -103,7 +129,28 @@ def clean_screen(cla):
                         imgs_ = imgs_set_(0, 30, 960, 1060, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("exit_2", imgs_)
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\exit_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            for i in pyautogui.locateAllOnScreen(img, region=(0 + plus, 960, 40, 1030), confidence=0.7):
+                                last_x = i.left
+                                last_y = i.top
+                                print("last_x", last_x)
+                                print("last_y", last_y)
+                                click_pos_reg(last_x, last_y, cla)
+                                time.sleep(0.2)
+
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\exit_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            for i in pyautogui.locateAllOnScreen(img, region=(0 + plus, 960, 40, 1030), confidence=0.7):
+                                last_x = i.left
+                                last_y = i.top
+                                print("last_x", last_x)
+                                print("last_y", last_y)
+                                click_pos_reg(last_x, last_y, cla)
+                                time.sleep(0.2)
                         else:
                             # 아바타 소환
                             full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\all_look.PNG"
