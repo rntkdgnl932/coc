@@ -553,8 +553,25 @@ def get_start_sayoung(cla):
                     time.sleep(0.1)
 
             else:
-                sayoung_count += 1
-                time.sleep(0.1)
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\check\\start\\max.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(500, 500, 650, 650, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.2)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.2)
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\check\\start\\confirm.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(450, 550, 650, 700, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.2)
+                else:
+                    sayoung_count += 1
+                    time.sleep(0.1)
 
 
 
