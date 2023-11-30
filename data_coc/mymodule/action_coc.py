@@ -56,6 +56,7 @@ def clean_screen(cla):
     import pyautogui
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from potion_coc import potion_check
+    from stop_event18 import _stop_please
 
     try:
         print("clean_screen")
@@ -70,6 +71,8 @@ def clean_screen(cla):
             plus = 960 * 3
 
         confirm_all(cla)
+
+        _stop_please(cla)
 
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\dead.PNG"
         img_array = np.fromfile(full_path, np.uint8)
