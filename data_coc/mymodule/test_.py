@@ -29,7 +29,7 @@ def go_test():
 
 
     print("test")
-    cla = "four"
+    cla = "one"
 
     plus = 0
 
@@ -44,7 +44,7 @@ def go_test():
         plus = 960 * 3
     #
     # get_item(cla)
-    clean_screen(cla)
+    boonhae_start(cla)
     # jadong_start(cla, "남매평원")
 
     # get_item(cla)

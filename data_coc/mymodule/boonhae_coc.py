@@ -27,28 +27,45 @@ def boonhae_start(cla):
             if bag_opened_count > 7:
                 bag_opened = True
 
-            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boolga.PNG"
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\bag_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(680, 410, 930, 650, cla, img, 0.8)
+            imgs_ = imgs_set_(770, 340, 830, 380, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
-                print("this is boolga")
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                for i in range(10):
-                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_title.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(460, 330, 530, 380, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        break
-                    else:
-                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_click_1.PNG"
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boolga.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 410, 930, 650, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("this is boolga")
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_title.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(530, 630, 620, 680, cla, img, 0.8)
+                        imgs_ = imgs_set_(460, 330, 530, 380, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(0.2)
+                            break
+                        else:
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_click_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(530, 630, 620, 680, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.2)
+                else:
+
+                    for i in range(10):
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(460, 330, 530, 380, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        else:
+                            click_pos_2(730, 660, cla)
+                        time.sleep(0.2)
 
                 for i in range(10):
                     full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\jadong_boonhae_setting.PNG"
@@ -86,9 +103,15 @@ def boonhae_start(cla):
                         time.sleep(0.1)
                     time.sleep(0.1)
                 bag_opened = True
+                # else:
+                #     drag_pos(810, 610, 810, 440, cla)
+                #     time.sleep(0.1)
+
             else:
-                drag_pos(810, 610, 810, 440, cla)
-                time.sleep(0.1)
+                bag_open(cla)
+            time.sleep(0.5)
+
+
 
         clean_screen(cla)
 
@@ -131,7 +154,7 @@ def boonhae_setting(cla):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(380, 440, 440, 480, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
-            print("방어구 not_checked")
+            print("장신구 not_checked")
             click_pos_reg(imgs_.x, imgs_.y, cla)
             time.sleep(0.2)
 
@@ -194,14 +217,14 @@ def boonhae_setting(cla):
             time.sleep(0.2)
 
         # 실수로 체크된 것 해제하기
-        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\checked.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(380, 440, 420, 490, cla, img, 0.7)
-        if imgs_ is not None and imgs_ != False:
-            print("장신구 체크 해제")
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-            time.sleep(0.2)
+        # full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\checked.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(380, 440, 420, 490, cla, img, 0.7)
+        # if imgs_ is not None and imgs_ != False:
+        #     print("장신구 체크 해제")
+        #     click_pos_reg(imgs_.x, imgs_.y, cla)
+        #     time.sleep(0.2)
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\checked.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
