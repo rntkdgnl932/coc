@@ -86,6 +86,35 @@ def clean_screen(cla):
             if result_out == True:
                 potion_check(cla)
 
+        # 분해화면 닫기
+        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(460, 330, 530, 380, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\exit_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            for i in pyautogui.locateAllOnScreen(img, region=(0 + plus, 30, 960, 1030), confidence=0.7):
+                last_x = i.left
+                last_y = i.top
+                print("last_x", last_x)
+                print("last_y", last_y)
+                click_pos_reg(last_x, last_y, cla)
+                time.sleep(0.2)
+
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\exit_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            for i in pyautogui.locateAllOnScreen(img, region=(0 + plus, 30, 960, 1030), confidence=0.7):
+                last_x = i.left
+                last_y = i.top
+                print("last_x", last_x)
+                print("last_y", last_y)
+                click_pos_reg(last_x, last_y, cla)
+                time.sleep(0.2)
+
+
         # 포션 닫기
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\cleen_screen\\potion_exit_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
