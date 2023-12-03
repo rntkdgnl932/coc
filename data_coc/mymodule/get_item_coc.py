@@ -512,10 +512,7 @@ def get_start_sayoung(cla):
             imgs_ = imgs_set_(700, 500, 900, 700, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
 
-                collection_start(cla)
-                time.sleep(0.1)
-                boonhae_start(cla)
-                time.sleep(0.1)
+
 
                 click_pos_reg(imgs_.x, imgs_.y, cla)
 
@@ -581,7 +578,10 @@ def get_start_sayoung(cla):
                     sayoung_count += 1
                     time.sleep(0.1)
 
-
+        collection_start(cla)
+        time.sleep(0.1)
+        boonhae_start(cla)
+        time.sleep(0.1)
 
 
     except Exception as e:

@@ -17,6 +17,7 @@ def dungeon_start(cla, where):
     from potion_coc import potion_check
     from collection_coc import collection_start
     from boonhae_coc import boonhae_start
+    from schedule import myQuest_play_add
 
     try:
         print("dungeon_start", where)
@@ -50,28 +51,45 @@ def dungeon_start(cla, where):
                 imgs_ = imgs_set_(400, 130, 700, 700, cla, img, 0.7)
                 if imgs_ is not None and imgs_ != False:
                     print("죽었다...")
-                    click_pos_reg(imgs_.x - 100, imgs_.y + 300, cla)
-                    for i in range(10):
-                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\underus_migoong_map_title1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(770, 80, 860, 105, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            print("진행중...1")
-                            dun_in = True
-                            click_pos_2(915, 910, cla)
-                            break
-                        else:
-                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\underus_migoong_map_title2.PNG"
+                    v_.dun_dead += 1
+
+                    if v_.dun_dead > 5:
+                        myQuest_play_add(cla, where)
+                    else:
+                        click_pos_reg(imgs_.x - 100, imgs_.y + 300, cla)
+                        for i in range(10):
+
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\party_information.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 30, 500, 70, cla, img, 0.7)
+                            imgs_ = imgs_set_(430, 335, 520, 380, cla, img, 0.7)
                             if imgs_ is not None and imgs_ != False:
-                                print("진행중...2")
-                                dun_in = True
-                                click_pos_2(915, 910, cla)
-                                break
-                        time.sleep(1)
+
+                                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\confirm.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(480, 590, 620, 630, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    break
+                                else:
+                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\join_out.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(130, 630, 830, 680, cla, img, 0.7)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        time.sleep(0.5)
+
+
+                            else:
+                                if result_dun_where[1] == "언더어스의미궁":
+                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\underus_migoong_dun_in_ready.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(800, 190, 900, 220, cla, img, 0.7)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(780, 215, cla)
 
         if dun_in == False:
 

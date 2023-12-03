@@ -7,6 +7,8 @@ now_arduino = "none"
 # 해당 게임 관련
 # 튜토리얼 죽은 횟수
 tuto_dead = 0
+# 던전 죽은 횟수
+dun_dead = 0
 # 블랙스크린 카운터
 black_screen_count = 0
 # 부활금지
