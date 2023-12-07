@@ -13,12 +13,14 @@ def get_item(cla):
     import numpy as np
     import cv2
     from potion_coc import potion_check
-    from action_coc import out_check, clean_screen
+    from action_coc import out_check, clean_screen, juljun_off
     from collection_coc import collection_start
     from boonhae_coc import boonhae_start
 
     try:
         print("get_item")
+
+        juljun_off(cla)
 
         result_out = out_check(cla)
         if result_out == False:
@@ -40,6 +42,7 @@ def get_item(cla):
         get_server_post(cla)
 
         get_post(cla)
+
 
         clean_screen(cla)
 
