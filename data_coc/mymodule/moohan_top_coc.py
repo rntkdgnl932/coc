@@ -147,93 +147,9 @@ def moohan_top_in(cla, where):
                     # 자원획득
 
 
-                    # 즉시수령
-                    for i in range(10):
-                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\soolyung.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(470, 630, 580, 665, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_2(430, 650, cla)
-                            break
-                        else:
-                            click_pos_2(155, 540, cla)
-                        time.sleep(0.5)
+                    moohan_get(cla)
 
-                    for i in range(10):
-                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\confirm.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(480, 630, 580, 670, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\soolyung_ready.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(440, 605, 480, 630, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_2(430, 650, cla)
-                            else:
-                                click_pos_2(530, 650, cla)
-                            break
-                        time.sleep(0.5)
-
-                    # 수령
-                    for i in range(10):
-                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\soolyung.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(470, 630, 580, 665, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_2(530, 650, cla)
-                            time.sleep(0.5)
-                            click_pos_2(530, 650, cla)
-                            time.sleep(0.5)
-                            break
-                        else:
-                            click_pos_2(155, 540, cla)
-                        time.sleep(0.5)
-
-
-
-
-
-                    # 심연탐사
-
-                    for i in range(10):
-                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_simyuntamsa_title.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(430, 320, 530, 360, cla, img, 0.7)
-                        if imgs_ is not None and imgs_ != False:
-                            result_ran = random.randint(1, 5)
-                            y_reg = 360 + (50 * int(result_ran))
-                            break
-                        else:
-                            click_pos_2(155, 725, cla)
-                        time.sleep(0.5)
-
-                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_simyuntamsa_title.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(430, 320, 530, 360, cla, img, 0.7)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_2(300, y_reg, cla)
-                        time.sleep(0.2)
-                        click_pos_2(710, 555, cla)
-                        time.sleep(0.2)
-                        click_pos_2(770, 720, cla)
-
-                        for i in range(10):
-                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\confirm.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(480, 590, 580, 670, cla, img, 0.7)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                break
-                            time.sleep(0.3)
-
-                        dun_go = True
+                    dun_go = True
 
                     # 나가기
                     for i in range(10):
@@ -255,6 +171,9 @@ def moohan_top_in(cla, where):
                         myQuest_play_add(cla, where)
 
                 else:
+
+                    moohan_get(cla)
+
                     print("무한의탑 실행하자")
                     click_pos_2(480, 1000, cla)
 
@@ -389,6 +308,97 @@ def moohan_top_in(cla, where):
                                 time.sleep(0.5)
 
 
+    except Exception as e:
+        print(e)
+        return 0
+
+def moohan_get(cla):
+    import numpy as np
+    import cv2
+    from function_game import imgs_set_, click_pos_2, click_pos_reg
+    import random
+    try:
+        # 즉시수령
+        for i in range(10):
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\soolyung.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(470, 630, 580, 665, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(430, 650, cla)
+                break
+            else:
+                click_pos_2(155, 540, cla)
+            time.sleep(0.5)
+
+        for i in range(10):
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\confirm.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(480, 630, 580, 670, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\soolyung_ready.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(440, 605, 480, 630, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(430, 650, cla)
+                else:
+                    click_pos_2(530, 650, cla)
+                break
+            time.sleep(0.5)
+
+        # 수령
+        for i in range(10):
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\soolyung.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(470, 630, 580, 665, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(530, 650, cla)
+                time.sleep(0.5)
+                click_pos_2(530, 650, cla)
+                time.sleep(0.5)
+                break
+            else:
+                click_pos_2(155, 540, cla)
+            time.sleep(0.5)
+
+        # 심연탐사
+
+        for i in range(10):
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_simyuntamsa_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(430, 320, 530, 360, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                result_ran = random.randint(1, 5)
+                y_reg = 360 + (50 * int(result_ran))
+                break
+            else:
+                click_pos_2(155, 725, cla)
+            time.sleep(0.5)
+
+        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_simyuntamsa_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(430, 320, 530, 360, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_2(300, y_reg, cla)
+            time.sleep(0.2)
+            click_pos_2(710, 555, cla)
+            time.sleep(0.2)
+            click_pos_2(770, 720, cla)
+
+            for i in range(10):
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\confirm.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(480, 590, 580, 670, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    break
+                time.sleep(0.3)
     except Exception as e:
         print(e)
         return 0
