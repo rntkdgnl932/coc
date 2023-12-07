@@ -30,25 +30,7 @@ def jadong_start(cla, where):
                     print("where", read_jadong)
                     break
 
-        contents_exist = False
-        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\point_1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(260, 30, 300, 60, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            contents_exist = True
-        else:
-            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\point_1_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(260, 30, 300, 60, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                contents_exist = True
 
-        if contents_exist == True:
-            get_item(cla)
-            time.sleep(0.1)
-            clean_screen(cla)
 
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\juljun\\juljun_mode.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -88,6 +70,27 @@ def jadong_start(cla, where):
                 juljun_off(cla)
                 jadong_spot_go(cla, where)
         else:
+            contents_exist = False
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\point_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(260, 30, 300, 60, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                contents_exist = True
+            else:
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\get_item\\contents_bosang\\point_1_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(260, 30, 300, 60, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    contents_exist = True
+
+            if contents_exist == True:
+                get_item(cla)
+                time.sleep(0.1)
+                clean_screen(cla)
+
+
             juljun_on(cla)
 
 
