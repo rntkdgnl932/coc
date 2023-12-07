@@ -16,6 +16,7 @@ def jadong_start(cla, where):
     from action_coc import juljun_off, juljun_on, clean_screen
     from potion_coc import potion_check
     from get_item_coc import get_item
+    from boonhae_coc import boonhae_start
 
     try:
         print("jadong_start", where)
@@ -53,7 +54,7 @@ def jadong_start(cla, where):
                     if v_.attack_count > 0:
                         v_.attack_count -= 1
                 else:
-                    print("절전모드 해제 후 오토 버튼 누르기", v_.attack_count)
+                    print("절전모드 해제 후 분해하고 오토 버튼 누르기", v_.attack_count)
 
                     v_.attack_count += 1
 
@@ -61,6 +62,10 @@ def jadong_start(cla, where):
 
                         juljun_off(cla)
                         time.sleep(0.1)
+
+                        boonhae_start(cla)
+                        time.sleep(0.1)
+
                         click_pos_2(911, 911, cla)
                         time.sleep(0.2)
                         juljun_on(cla)
