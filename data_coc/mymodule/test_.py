@@ -42,45 +42,60 @@ def go_test():
         plus = 960 * 2
     elif cla == "four":
         plus = 960 * 3
+
+    v_.now_cla = cla
     #
     # get_item(cla)
     # boonhae_start(cla)
     # jadong_start(cla, "남매평원")
 
-
-
-    click_count = 0
-
-    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boolga.PNG"
+    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\check\\game_ready.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    for i in pyautogui.locateAllOnScreen(img, region=(680 + plus, 370, 940, 670), confidence=0.7):
-        click_count += 1
-        last_x = i.left
-        last_y = i.top
-        # print("last_x", last_x)
-        # print("last_y", last_y)
-        click_pos_reg(last_x, last_y, cla)
-        time.sleep(0.1)
-        click_pos_reg(last_x, last_y, cla)
-        time.sleep(0.1)
-        if click_count > 15:
-            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_click_2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(440, 620, 510, 680, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-            break
+    imgs_ = imgs_set_(400, 600, 550, 650, v_.now_cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("game_waiting...")
 
-    for i in range(10):
-        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_result.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(440, 380, 520, 420, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-        time.sleep(0.2)
+    full_path = "c:\\my_games\\" + str(v_.game_folder) + "\\" + str(v_.data_folder) + "\\imgs\\18\\18_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(10, 980, 200, 1060, "four", img, 0.7)
+    if imgs_ is not None and imgs_ != False:
+        print("18_1818181818181228")
+
+
+    # click_count = 0
+    #
+    # full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boolga.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # for i in pyautogui.locateAllOnScreen(img, region=(680 + plus, 370, 940, 670), confidence=0.7):
+    #     click_count += 1
+    #     last_x = i.left
+    #     last_y = i.top
+    #     # print("last_x", last_x)
+    #     # print("last_y", last_y)
+    #     click_pos_reg(last_x, last_y, cla)
+    #     time.sleep(0.1)
+    #     click_pos_reg(last_x, last_y, cla)
+    #     time.sleep(0.1)
+    #     if click_count > 15:
+    #         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_click_2.PNG"
+    #         img_array = np.fromfile(full_path, np.uint8)
+    #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #         imgs_ = imgs_set_(440, 620, 510, 680, cla, img, 0.8)
+    #         if imgs_ is not None and imgs_ != False:
+    #             click_pos_reg(imgs_.x, imgs_.y, cla)
+    #         break
+    #
+    # for i in range(10):
+    #     full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_result.PNG"
+    #     img_array = np.fromfile(full_path, np.uint8)
+    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    #     imgs_ = imgs_set_(440, 380, 520, 420, cla, img, 0.8)
+    #     if imgs_ is not None and imgs_ != False:
+    #         click_pos_reg(imgs_.x, imgs_.y, cla)
+    #     time.sleep(0.2)
 
     # get_item(cla)
     #
