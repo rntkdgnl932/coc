@@ -82,17 +82,21 @@ def potion_buy(cla):
     from action_coc import clean_screen
     from massenger import line_to_me
     from schedule import myQuest_play_check, myQuest_play_add
+    from get_item_coc import get_item
 
     try:
         print("potion_buy")
 
-        result_schedule = myQuest_play_check(v_.now_cla, "check")
+        result_schedule = myQuest_play_check(cla, "check")
         character_id = result_schedule[0][1]
         result_schedule_ = result_schedule[0][2]
 
         if result_schedule_ == "튜토육성" or result_schedule_ == "서브퀘스트":
             myQuest_play_add(cla, result_schedule_)
             time.sleep(0.2)
+
+        potion_buy_ready_maul_move(cla)
+        get_item(cla)
 
         full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\sangjum.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -111,6 +115,8 @@ def potion_buy(cla):
                 time.sleep(0.5)
         else:
             potion_buy_ready_maul_move(cla)
+
+
 
         potionbuy_ = False
         potionbuy_count = 0
@@ -252,6 +258,19 @@ def potion_buy_ready_maul_move(cla):
             if imgs_ is not None and imgs_ != False:
                 print("title_worldmap")
 
+                for i in range(10):
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\dungeon_map_close.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(775, 355, 830, 410, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        print("dungeon_map_close")
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        break
+                    time.sleep(0.5)
+
+
                 full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\jabhwa_3.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -274,6 +293,15 @@ def potion_buy_ready_maul_move(cla):
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.5)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\sangjum.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 30, 960, 1030, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            print("sangjum", imgs_)
+                            break
+                        time.sleep(1)
 
                 else:
                     full_path = "c:\\my_games\\coc\\data_coc\\imgs\\potion\\jabhwa_1.PNG"

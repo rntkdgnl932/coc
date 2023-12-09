@@ -18,7 +18,7 @@ def go_test():
     from function_game import imgs_set_, click_pos_reg, drag_pos
     from action_coc import juljun_off, juljun_on, clean_screen
     from jadong_coc import jadong_start
-
+    from moohan_top_coc import moohan_top_in_get
 
     from get_item_coc import get_item, get_post, get_chulsuk_bosang, get_event_bosang, get_server_post, get_start_sayoung
     from collection_coc import collection_start
@@ -43,23 +43,24 @@ def go_test():
     elif cla == "four":
         plus = 960 * 3
 
-    v_.now_cla = cla
+    # v_.now_cla = cla
     #
-    # get_item(cla)
+    get_item(cla)
     # boonhae_start(cla)
     # jadong_start(cla, "남매평원")
+
 
     full_path = "c:\\my_games\\coc\\data_coc\\imgs\\check\\game_ready.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(400, 600, 550, 650, v_.now_cla, img, 0.8)
+    imgs_ = imgs_set_(400, 600, 550, 650, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
         print("game_waiting...")
 
     full_path = "c:\\my_games\\" + str(v_.game_folder) + "\\" + str(v_.data_folder) + "\\imgs\\18\\18_1.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(10, 980, 200, 1060, "four", img, 0.7)
+    imgs_ = imgs_set_(10, 980, 200, 1060, cla, img, 0.7)
     if imgs_ is not None and imgs_ != False:
         print("18_1818181818181228")
 

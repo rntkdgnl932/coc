@@ -16,6 +16,7 @@ def get_item(cla):
     from action_coc import out_check, clean_screen, juljun_off
     from collection_coc import collection_start
     from boonhae_coc import boonhae_start
+    from moohan_top_coc import moohan_top_in_get
 
     try:
         print("get_item")
@@ -42,6 +43,8 @@ def get_item(cla):
         get_server_post(cla)
 
         get_post(cla)
+
+        moohan_top_in_get(cla)
 
 
         clean_screen(cla)

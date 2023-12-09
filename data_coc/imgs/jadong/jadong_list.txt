@@ -21,3 +21,6 @@
 하얀사막:white_samag:샤스텔북동부:505
 포식의모래:posig_sand:샤스텔북동부:535
 샤스텔유적지:syastel_youjugji:샤스텔북동부:570
+샤스텔유적지하1:syastel_youjugjiha1:샤스텔북동부:630
+샤스텔유적지하2:syastel_youjugjiha2:샤스텔북동부:660
+샤스텔유적지하3:syastel_youjugjiha3:샤스텔북동부:690

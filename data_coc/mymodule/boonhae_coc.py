@@ -103,63 +103,80 @@ def boonhae_start(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(350, 620, 460, 680, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(0.1)
-                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_click_2.PNG"
+                        break
+                    time.sleep(0.1)
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boolga.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(440, 620, 510, 680, cla, img, 0.8)
+                    imgs_ = imgs_set_(680, 370, 940, 670, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                        not_selected = False
-
-                        for c in range(10):
-                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\not_selected.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(370, 270, 540, 340, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                not_selected = True
-                                break
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\jadong_confirm.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(350, 620, 460, 680, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
                             time.sleep(0.1)
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_click_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(440, 620, 510, 680, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                        if not_selected == True:
-                            click_count = 0
+                            not_selected = False
 
-                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boolga.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            for b in pyautogui.locateAllOnScreen(img, region=(680 + plus, 370, 940, 670),
-                                                                 confidence=0.7):
-                                click_count += 1
-                                last_x = b.left
-                                last_y = b.top
-                                # print("last_x", last_x)
-                                # print("last_y", last_y)
-                                click_pos_reg(last_x, last_y, cla)
-                                time.sleep(0.1)
-                                click_pos_reg(last_x, last_y, cla)
-                                time.sleep(0.1)
-                                if click_count > 15:
-                                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_click_2.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(440, 620, 510, 680, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                            for c in range(10):
+                                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\not_selected.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(370, 270, 540, 340, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    not_selected = True
                                     break
+                                time.sleep(0.1)
 
-                        for i in range(10):
-                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_result.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(440, 380, 520, 420, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.2)
-                        time.sleep(0.1)
-                    time.sleep(0.1)
+                            if not_selected == True:
+                                click_count = 0
+
+                                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boolga.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                for b in pyautogui.locateAllOnScreen(img, region=(680 + plus, 370, 940, 670),
+                                                                     confidence=0.7):
+                                    click_count += 1
+                                    last_x = b.left
+                                    last_y = b.top
+                                    # print("last_x", last_x)
+                                    # print("last_y", last_y)
+                                    click_pos_reg(last_x, last_y, cla)
+                                    time.sleep(0.1)
+                                    click_pos_reg(last_x, last_y, cla)
+                                    time.sleep(0.1)
+                                    if click_count > 15:
+                                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_click_2.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(440, 620, 510, 680, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        break
+
+                            for c in range(10):
+                                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\boonhae\\boonhae_result.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(440, 380, 520, 420, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y + 140, cla)
+                                time.sleep(0.2)
+                            time.sleep(0.1)
+                    else:
+                        break
+
+                    time.sleep(0.2)
                 bag_opened = True
                 # else:
                 #     drag_pos(810, 610, 810, 440, cla)

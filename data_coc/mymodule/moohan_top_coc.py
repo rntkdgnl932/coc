@@ -20,7 +20,7 @@ def moohan_top_start(cla, where):
     try:
         print("moohan_top_start", where)
 
-        result_dun_where = where.split("_")
+        # result_dun_where = where.split("_")
 
         # result_dun_where[0] => 던전
         # result_dun_where[1] => 던전이름...무한의탑
@@ -306,6 +306,111 @@ def moohan_top_in(cla, where):
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.5)
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def moohan_top_in_get(cla):
+    import numpy as np
+    import cv2
+    import random
+    from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from action_coc import menu_open, loading, clean_screen
+    from schedule import myQuest_play_add
+    from potion_coc import potion_check
+
+
+    try:
+        print("moohan_top_in_get")
+
+        clean_screen(cla)
+
+        # result_dun_where = where.split("_")
+
+        # result_dun_where[0] => 던전
+        # result_dun_where[1] => 던전이름...무한의탑
+        # result_dun_where[2] => 층수(무한의탑은 의미 없는 듯)
+
+        dun_go = False
+        dun_go_count = 0
+        while dun_go is False:
+            dun_go_count += 1
+            if dun_go_count > 7:
+                dun_go = True
+
+            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_top_in.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(740, 400, 820, 440, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                print("moohan_top_in")
+
+                moohan_get(cla)
+
+                dun_go = True
+
+                # 나가기
+                for i in range(10):
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_simyuntamsa_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(430, 320, 530, 360, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        clean_screen(cla)
+                    full_path = "c:\\my_games\\coc\\data_coc\\imgs\\title\\title_dungeon.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(10, 30, 100, 80, cla, img, 0.7)
+                    if imgs_ is not None and imgs_ != False:
+                        clean_screen(cla)
+                    time.sleep(0.2)
+
+            else:
+                full_path = "c:\\my_games\\coc\\data_coc\\imgs\\title\\title_dungeon.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 30, 100, 80, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    for i in range(5):
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_top_in.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(740, 400, 820, 440, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        else:
+                            click_pos_2(175, 110, cla)
+                            time.sleep(0.5)
+
+                else:
+                    menu_open(cla)
+                    time.sleep(0.1)
+                    for i in range(5):
+                        full_path = "c:\\my_games\\coc\\data_coc\\imgs\\title\\title_dungeon.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(10, 30, 100, 80, cla, img, 0.7)
+                        if imgs_ is not None and imgs_ != False:
+
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\moohan_top_in.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(740, 400, 820, 440, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            else:
+                                click_pos_2(175, 110, cla)
+                                time.sleep(0.5)
+                        else:
+                            full_path = "c:\\my_games\\coc\\data_coc\\imgs\\dungeon\\menu_dungeon.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(700, 180, 950, 300, cla, img, 0.7)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
 
 
     except Exception as e:
