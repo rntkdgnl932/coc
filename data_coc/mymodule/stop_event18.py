@@ -21,7 +21,7 @@ def _stop_please(cla):
         full_path = "c:\\my_games\\" + str(v_.game_folder) + "\\" + str(v_.data_folder) + "\\imgs\\18\\18_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(10, 980, 200, 1060, cla, img, 0.7)
+        imgs_ = imgs_set_(10, 980, 200, 1060, cla, img, 0.6)
         if imgs_ is not None and imgs_ != False:
             print("18_1")
             click_pos_reg(imgs_.x, imgs_.y, cla)
